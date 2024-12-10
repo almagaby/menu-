@@ -1,0 +1,38 @@
+from flask import Flask, render_template_string
+
+app = Flask(__name__)
+
+@app.route('/')
+def menu():
+    html = """
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Menú</title>
+    </head>
+    <body>
+        <h1>Menú Principal</h1>
+        <ul>
+            <li><a href="/opcion1">Opción 1</a></li>
+            <li><a href="/opcion2">Opción 2</a></li>
+            <li><a href="/opcion3">Opción 3</a></li>
+        </ul>
+    </body>
+    </html>
+    """
+    return render_template_string(html)
+
+@app.route('/opcion1')
+def opcion1():
+    return "Elegiste Opción 1"
+
+@app.route('/opcion2')
+def opcion2():
+    return "Elegiste Opción 2"
+
+@app.route('/opcion3')
+def opcion3():
+    return "Elegiste Opción 3"
+
+if __name__ == '__main__':
+    app.run(debug=True)
