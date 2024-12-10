@@ -1,0 +1,27 @@
+import tkinter as tk
+from tkinter import messagebox
+
+def opcion1():
+    messagebox.showinfo("Opción", "Elegiste Opción 1")
+
+def opcion2():
+    messagebox.showinfo("Opción", "Elegiste Opción 2")
+
+def salir():
+    ventana.destroy()
+
+ventana = tk.Tk()
+ventana.title("Menú Principal")
+
+menu_bar = tk.Menu(ventana)
+
+menu = tk.Menu(menu_bar, tearoff=0)
+menu.add_command(label="Opción 1", command=opcion1)
+menu.add_command(label="Opción 2", command=opcion2)
+menu.add_separator()
+menu.add_command(label="Salir", command=salir)
+
+menu_bar.add_cascade(label="Menú", menu=menu)
+
+ventana.config(menu=menu_bar)
+ventana.mainloop()
