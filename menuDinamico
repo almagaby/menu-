@@ -1,0 +1,5 @@
+from django.shortcuts import render
+
+def menu(request):
+    opciones = ["Inicio", "Productos", "Servicios", "Contacto"]
+    return render(request, "menu.html", {"opciones": opciones})
